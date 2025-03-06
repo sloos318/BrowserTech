@@ -40,7 +40,7 @@
         <section>
             <h2>Welkom</h2>
             <p>Welkom bij de belastingdienst erfbelasting formulier.</p>
-            <a href="#sec1" class="button">Begin met aangifte</a>
+            <button>Begin met aangifte</button>
         </section>
 
         <section id="sec1">
@@ -92,7 +92,7 @@
                 Beantwoord de vragen in ons hulpmiddel en u ziet of én hoeveel
                 erfbelasting u ongeveer moet betalen.
             </p>
-            <a href="#sec1" class="button">Begin met aangifte</a>
+            <button class="button">Begin met aangifte</button>
         </section>
 
         <section>
@@ -106,7 +106,88 @@
                     € 1.350,99 = € 1.350).
                 </li>
             </ul>
+            <button class="button">volgende</button>
         </section>
-    
+        <section>
+            <form>
+                <fieldset>
+                    <legend>Vul hier de gegevens in van de overledenen</legend>
+                
+                    <label>
+                        Naam 
+                        <input type="text" placeholder="sybren loos" title="Jouw naam please" required>
+                    </label>
+                    <label>
+                        Adres 
+                        <input type="text" placeholder="Bijvoorbeeld: ridchardstraat 8" required>
+                    </label>
+                    <label>
+                        Postcode 
+                        <input type="postcode" placeholder="Bijvoorbeeld: 1234 HH" pattern="[1-9][0-9]{3}[\s]?[A-Za-z]{2}" title="Bijvoorbeeld: 1234 HH" required>
+                    </label>
+                    <label>
+                        Telefoonnummer 
+                        <input type="text" placeholder="Bijvoorbeeld: 06 12345678" pattern="\d{2} \d{8}" required>
+                    </label>
+                    <label>
+                        Email 
+                        <input type="email" placeholder="Bijvoorbeeld: text@gmail.com" required>
+                    </label>
+                    <label>
+                        BSN nummer 
+                        <input type="text" placeholder="123456789" required pattern="[1-9][0-9]{8}" required>
+                    </label>
+                    <label>
+                        overlijdensdatum 
+                        <input type="date" required   min="2024-09-06"
+                        max="2025-03-06" id="date">
+                    </label>
+
+                    <input type="submit" value="Submit">
+                </fieldset>
+            </form>
+        </section>
+        <section>
+            <form>
+                <fieldset>
+                    <legend>Vul hier de gegevens in van de overledene</legend>
+                    <p>1a.</p>
+                    <div>
+                        <label for="naam">
+                            voorletter(s) 
+                            <input type="text" required placeholder="Bijv. S.T">
+                        </label>
+                        <label for="naam">
+                            tussenvoegsel 
+                            <input type="text" placeholder="Bijv. van">
+                        </label>
+                        <label for="naam">
+                            achternaam 
+                            <input type="text" required placeholder="Bijv. Loos">
+                        </label>
+                    </div>
+
+                    <label>
+                        BSN nummer 
+                        <input type="text" placeholder="123456789" required pattern="[1-9][0-9]{8}" required>
+                    </label>
+                    <label>
+                        overlijdensdatum 
+                        <input type="date" required   min="2024-09-06"
+                        max="2025-03-06" id="date">
+                    </label>
+                </fieldset>
+            </form>
+            <form action="">
+                <fieldset>
+                    1b.
+                    <label for="was de overledenen getrouwd of had de overledene ee geregistreerd op het moment van overlijdenen?">
+                        <input type="radio">
+                        <input type="radio">
+                    </label>
+                </fieldset>
+            </form>
+        </section>
+        
 </body>
 </html>

@@ -1,8 +1,13 @@
 :root {
     --color-ns-yellow: #ffc917;
     --color-ns-blue: #0063d3;
+    --color-ns-blue2: rgba(0, 99, 211, .5);
     --color-ns-darkblue: #003082;
     --background-color: #fff;
+
+    --color-empty:rgb(70, 70, 70);
+    --color-valid: rgb(1, 133, 9); 
+    --color-invalid: rgba(255, 0, 0, 0.616);
 
     @supports (color: color) {
         --color-in-yellow-oklch: oklch(85.98% 0.1724 88.5);
@@ -11,40 +16,42 @@
     }
 
     --font-size-largest: clamp(20px, 8vw, 45px);
+    --font-size-legend: clamp(20px, 4vw, 30px);
     --font-size-regular: clamp(16px, 4vw, 22px);
+    --font-label-size: clamp(16px, 3vw, 20px);
 }
 
 @font-face {
     font-family: 'nssans';
-    src: url('/fonts/nssans-regular.woff2') format('woff2');
+    src: url('../fonts/nssans-regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'nssans';
-    src: url('/fonts/nssans-italic.woff2') format('woff2');
+    src: url('../fonts/nssans-italic.woff2') format('woff2');
     font-weight: 400;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'nssans';
-    src: url('/fonts/nssans-demi.woff2') format('woff2');
+    src: url('../fonts/nssans-demi.woff2') format('woff2');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'nssans';
-    src: url('/fonts/nssans-bold.woff2') format('woff2');
+    src: url('../fonts/nssans-bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'nssans';
-    src: url('/fonts/nssans-bolditalic.woff2') format('woff2');
+    src: url('../fonts/nssans-bolditalic.woff2') format('woff2');
     font-weight: 700;
     font-style: italic;
 }
@@ -101,6 +108,16 @@ main a.button {
     text-decoration: none;
 }
 
+main button {
+    background-color: var(--color-ns-blue);
+    color: var(--background-color);
+    padding: 1em 2em;
+    border-radius: 5px;
+    text-decoration: none;
+    align-self: end;
+    justify-self: end;
+}
+
 main a:hover {
     background-color: var(--color-ns-darkblue);
 }
@@ -120,36 +137,6 @@ header {
         justify-content: space-between;
         gap: 1em;
         align-items: center;
-    }
-
-    button:nth-of-type(1) {
-        display: flex;
-        flex-direction: column;
-        gap: .5em;
-        background-color: var(--color-ns-yellow);
-        border: none;
-
-        span {
-            display: block;
-            background-color: var(--color-ns-darkblue);
-            height: 3px;
-            width: 2em;
-        }
-        
-    }
-    
-
-    
-    button:nth-of-type(2) {
-        background: none;
-        padding: .1em;
-        width: 2em;
-        height: 2em;
-        border-radius: 100%;
-        color: var(--color-ns-darkblue);
-        border: var(--color-ns-darkblue) solid 4px;
-        font-size: 1.5em;
-        font-weight: 600;
     }
     
     span {
@@ -219,6 +206,164 @@ section {
     display: grid;
 }
 
+/* The fieldset is styled to ensure that its contents are displayed in a grid layout with proper spacing */
+fieldset {
+    padding: 1em;
+
+    display: grid;
+    grid-template-columns: minmax(min-content, 1fr) 1fr;
+    align-items: center;
+    justify-content:space-between;
+    gap: 1.2em;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+
+    >input{
+        grid-column: 1;
+        background-color: var(--color-ns-blue);
+        color: var(--background-color);
+        padding: 1em 2em;
+        border-radius: 5px;
+        text-decoration: none;
+        align-self: end;
+    }
+
+    legend {
+        font-size: var(--font-size-legend);
+        padding-bottom: .5em;
+    }
+
+
+
+    label {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5em;
+        row-gap: .2em;
+        align-items: center;
+        font-size: var(--font-size-regular);
+
+
+
+
+        input {
+            display: flex;
+            height: 1em;
+            font-size: var(--font-label-size);
+            padding: .2em;
+            width: 100%;
+            justify-content: space-between;
+            position: relative;
+
+
+            &:focus {
+                background-color: var(--color-ns-yellow);
+                font-weight: 600;
+            }
+
+            /* Input valid & invalid styling */
+
+            /* valids */
+
+            &:valid:not(:placeholder-shown) {
+            border-right: 3px solid var(--color-valid);
+            width: 85%;
+            }
+
+            &:invalid {
+            width: 85%;
+            }
+
+            &:valid:required {
+            border-right: 3px solid var(--color-valid);
+            }
+
+            /* Als waarde in range is (min & max) */
+            
+            input:user-valid:in-range {
+            background-color: rgb(0 255 0 / 25%);
+            border: 2px solid var(--color-valid);
+            }
+            
+            input:user-valid:in-range+label::after {
+            content: "Waarde is in range";
+            }
+
+
+            /* invalids */
+
+            input:out-of-range {
+            background-color: rgb(255 0 0 / 25%);
+            border: 2px solid var(--color-invalid);
+            }
+        
+            input:out-of-range+label::after {
+            content: "Waarde is uit range";
+            }
+
+            &:user-invalid {
+            border-right: 3px solid var(--color-invalid);
+            }
+
+            &:invalid:focus:not(:placeholder-shown) {
+            border-right: 3px solid var(--color-invalid);
+            }
+        }
+        }
+}
+
+label:has(input:valid:not(:placeholder-shown))::after {
+    content: '';
+    display: inline-block;
+    width: .8em;
+    height: .8em;
+    background-image: url(../icons/general/check-fat--small.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    justify-self: end;
+}
+
+
+label:has(input:required:invalid:not(:placeholder-shown))::after {
+    content: '';
+    display: inline-block;
+    width: .8em;
+    height: .8em;
+    background-image: url(../icons/general/close-s--small.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    justify-self: end;
+}
+
+label:has(input:required)::after {
+    content: '*';
+}
+
+
+div {
+    grid-column: 1/3;
+
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+
+
+
+    label {
+        width: 100%;
+
+        input{
+            width: 85%;
+        }
+    }
+
+
+}
+
+
 
 
 section:nth-of-type(1) {
@@ -228,11 +373,6 @@ section:nth-of-type(1) {
 
     h2, p {
         align-self: start;
-    }
-
-    a {
-        align-self: end;
-        justify-self: end;
     }
 
     
