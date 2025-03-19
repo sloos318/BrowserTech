@@ -1,4 +1,25 @@
 # BrowserTech
+Bij browser tech is het de opdracht om in de stijl van de NS een erfbelastingsformulier te maken op basis van de techniek progressive enhancement. Ik wil voornamelijk focussen op slimme systemen met css bouwen om validatie zo goed mogelijk te laten werken. Ik ga dit doen bij een aantal verschillende stukken van het erf belastings formulier.
+
+## valideren met Has en After
+Ik heb veel gedaan met has en After om goede validatie te creeeren. Ik had natuurlijk de inputs aan kunnen passen door de omlijning groen of rood te maken op user-valid en user-invalid, dit heb ik natuurlijk ook gedaan: 
+ 
+<img src='./img/greenLine.png'>
+<img src='./img/valid.png'>
+<img src='./img/invalid.png'>
+
+maar ik heb nog een aantal andere dingen toe gevoegd om dit nog wat beter te laten zien voor mensen die bijvoorbeeld kleurenblind zijn. Dit heb ik gedaan door after te gebruiken op de label als hij een valide, invalide of required input vel in zich heeft.
+
+<img src='./img/afters.png'>
+<img src='./img/codeafters.png'>
+
+Nou bedacht ik me op een later moment dat alleen een kruisje en een checkje niet goed genoeg is om duidelijk te maken wat er dan fout gaat. Hierom heb ik nog een aantal extra tekstjes toe gevoegd om te singaleren wat er fout is gegaan bij het invullen van het formulier. Dit doe ik ook weer met een has statement maar ik zorg er wel voor, dat de messages zichtbaar worden als has niet word gesupport.
+
+<img src='./img/message.png'>
+<img src='./img/codemessage.png'>
+
+
+##
 
 ## week 1
 

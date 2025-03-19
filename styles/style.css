@@ -4,6 +4,7 @@
     --color-ns-blue2: rgba(0, 99, 211, .5);
     --color-ns-darkblue: #003082;
     --background-color: #fff;
+    --background-color2: #e6e6e9;
 
     --color-empty:rgb(70, 70, 70);
     --color-valid: rgb(1, 133, 9); 
@@ -17,8 +18,10 @@
 
     --font-size-largest: clamp(20px, 8vw, 45px);
     --font-size-legend: clamp(20px, 4vw, 30px);
-    --font-size-regular: clamp(16px, 4vw, 22px);
+    --font-size-regular: clamp(16px, 4vw, 19px);
     --font-label-size: clamp(16px, 3vw, 20px);
+
+    accent-color: var(--color-ns-yellow);
 }
 
 @font-face {
@@ -64,8 +67,8 @@
 }
 
 body {
-    background-color: var(--color-ns-yellow);
-    padding: 1em;
+    background-color: var(--background-color2);
+    padding: 1em 2em;
     display: grid;
     row-gap: 1.5em;
 }
@@ -85,6 +88,12 @@ h2 {
 
 p {
     font-size: var(--font-size-regular);
+    grid-column: 1/3;
+}
+
+div {
+    display: flex;
+    gap: 1em;
 }
 
 main button {
@@ -93,6 +102,7 @@ main button {
     padding: 1em 2em;
     border-radius: 5px;
     text-decoration: none;
+    display: none;
 }
 
 main button:hover {
@@ -106,16 +116,7 @@ main a.button {
     padding: 1em 2em;
     border-radius: 5px;
     text-decoration: none;
-}
-
-main button {
-    background-color: var(--color-ns-blue);
-    color: var(--background-color);
-    padding: 1em 2em;
-    border-radius: 5px;
-    text-decoration: none;
-    align-self: end;
-    justify-self: end;
+    text-align: center;
 }
 
 main a:hover {
@@ -148,7 +149,6 @@ header {
 dialog{
     justify-self: center;
     margin: 0 2vw;
-    border-radius: 20px;
     border: none;
     place-self: center;
     min-height: 80vh;
@@ -189,9 +189,10 @@ dialog{
 
 main {
     display: grid;
-    gap: 2em;
     align-content: center;
     height: 100%;
+    width: 80vw;
+    justify-self: anchor-center;
 }
 
 main >button {
@@ -200,16 +201,51 @@ main >button {
 
 section {
     background-color: var(--background-color);
-    border-radius: 20px;
-    min-height: 65vh;
-    padding: 2em;
-    display: grid;
+    min-height: 55vh;
+    padding: 3vw;
+
 }
+
+form {
+    padding-top: 1em;
+    display: grid;
+    gap: 2em;
+
+    fieldset {
+        width: 100%;
+        border: none;
+        display: grid;
+        grid-template-columns: minmax(min-content, 1fr) 1fr;
+        justify-content: space-between;
+        gap: 1.5em;
+
+        div {
+            width: 100%;
+            border: none;
+            display: grid;
+            grid-template-columns:subgrid;
+            grid-column: span 2;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5em;
+        }
+
+
+        p {
+            padding-top: 1em;
+            max-width: 50ch;
+            grid-column: 1/3;
+        }
+    }
+}
+
+
 
 /* The fieldset is styled to ensure that its contents are displayed in a grid layout with proper spacing */
 fieldset {
-    padding: 1em;
-
+    width: 100%;
+    border: none;
+    grid-column: 1/4;
     display: grid;
     grid-template-columns: minmax(min-content, 1fr) 1fr;
     align-items: center;
@@ -218,103 +254,180 @@ fieldset {
 
     @media (max-width: 900px) {
         grid-template-columns: 1fr;
-    }
-
-    >input{
-        grid-column: 1;
-        background-color: var(--color-ns-blue);
-        color: var(--background-color);
-        padding: 1em 2em;
-        border-radius: 5px;
-        text-decoration: none;
-        align-self: end;
-    }
-
-    legend {
-        font-size: var(--font-size-legend);
-        padding-bottom: .5em;
-    }
 
 
-
-    label {
-        display: flex;
-        flex-wrap: wrap;
-        gap: .5em;
-        row-gap: .2em;
-        align-items: center;
-        font-size: var(--font-size-regular);
-
-
-
-
-        input {
-            display: flex;
-            height: 1em;
-            font-size: var(--font-label-size);
-            padding: .2em;
-            width: 100%;
-            justify-content: space-between;
-            position: relative;
-
-
-            &:focus {
-                background-color: var(--color-ns-yellow);
-                font-weight: 600;
-            }
-
-            /* Input valid & invalid styling */
-
-            /* valids */
-
-            &:valid:not(:placeholder-shown) {
-            border-right: 3px solid var(--color-valid);
-            width: 85%;
-            }
-
-            &:invalid {
-            width: 85%;
-            }
-
-            &:valid:required {
-            border-right: 3px solid var(--color-valid);
-            }
-
-            /* Als waarde in range is (min & max) */
-            
-            input:user-valid:in-range {
-            background-color: rgb(0 255 0 / 25%);
-            border: 2px solid var(--color-valid);
-            }
-            
-            input:user-valid:in-range+label::after {
-            content: "Waarde is in range";
-            }
-
-
-            /* invalids */
-
-            input:out-of-range {
-            background-color: rgb(255 0 0 / 25%);
-            border: 2px solid var(--color-invalid);
-            }
-        
-            input:out-of-range+label::after {
-            content: "Waarde is uit range";
-            }
-
-            &:user-invalid {
-            border-right: 3px solid var(--color-invalid);
-            }
-
-            &:invalid:focus:not(:placeholder-shown) {
-            border-right: 3px solid var(--color-invalid);
-            }
+        label {
+            grid-column: 1/3;
         }
-        }
+
+    }
+
+
 }
 
-label:has(input:valid:not(:placeholder-shown))::after {
+input[type=submit]{
+    grid-column: 1;
+    background-color: var(--color-ns-blue);
+    color: var(--background-color);
+    padding: 1em 2em;
+    border-radius: 5px;
+    text-decoration: none;
+    align-self: end;
+}
+
+
+
+legend {
+    font-size: var(--font-size-legend);
+    padding-bottom: .5em;
+}
+
+
+
+input[inputmode=numeric] {
+    --w: 1ch;   /* control the width for each letter */
+    --g: .15em; /* the gap between letters */
+    --b: 2px;   /* the border thickness */
+   
+    --c: #888;
+    --_n: attr(maxlength type(<integer>)); 
+    font-size: 70px;
+    line-height: 1.5; /* control the height */
+    letter-spacing: var(--w);
+    font-family: monospace;
+    width: calc(var(--_n)*(1ch + var(--w)));
+    padding-left: calc((var(--w) - var(--g))/2);
+    clip-path: inset(0 calc(var(--w)/2) 0 0);
+    background:
+      repeating-linear-gradient(90deg,
+        var(--c) 0 var(--b),#0000 0 calc(1ch + var(--w) - var(--g) - var(--b)),
+        var(--c) 0 calc(1ch + var(--w) - var(--g)),#0000 0 calc(1ch + var(--w))),
+      conic-gradient(at calc(100% - var(--g) - 1px) var(--b),#0000 75%,var(--c) 0) 
+       0 0/calc(1ch + var(--w)) calc(100% - var(--b));
+
+       border: none;
+}
+
+    /* https://css-tip.com/single-digit-inputs/ */
+
+    input[inputmode=numeric]:user-invalid:not(:placeholder-shown) {
+        --w: 1ch;   /* control the width for each letter */
+        --g: .15em; /* the gap between letters */
+        --b: 2px;   /* the border thickness */
+       
+        --c: #c40303;
+        --_n: attr(maxlength type(<integer>)); 
+        line-height: 1.5; /* control the height */
+        letter-spacing: var(--w);
+        font-family: monospace;
+        width: calc(var(--_n)*(1ch + var(--w)));
+        padding-left: calc((var(--w) - var(--g))/2);
+        clip-path: inset(0 calc(var(--w)/2) 0 0);
+        background:
+          repeating-linear-gradient(90deg,
+            var(--c) 0 var(--b),#0000 0 calc(1ch + var(--w) - var(--g) - var(--b)),
+            var(--c) 0 calc(1ch + var(--w) - var(--g)),#0000 0 calc(1ch + var(--w))),
+          conic-gradient(at calc(100% - var(--g) - 1px) var(--b),#0000 75%,var(--c) 0) 
+           0 0/calc(1ch + var(--w)) calc(100% - var(--b));
+
+           border: none;
+    }
+
+label:has(input[type=text]), label:has(input[type=email]), label:has(input[type=date]), label:has(input[type=tel]), label:has(input[type=postcode]), label:has(select)  {
+    display: grid;
+    grid-template-columns: 3.5fr auto;
+    grid-template-rows: 1fr 1fr .5fr;
+    gap: .5em;
+    row-gap: .2em;
+    align-items: center;
+    font-size: var(--font-size-regular);
+    justify-content: left;
+
+    input, select {
+        grid-row: 2;
+    }
+
+
+
+
+    input[type=text], input[type=email], input[type=date], input[type=postcode], input[type=tel]   {
+        display: flex;
+        height: 1em;
+        font-size: var(--font-label-size);
+        padding: .2em;
+        width: 100%;
+        justify-content: space-between;
+        position: relative;
+
+
+        &:focus {
+            background-color: var(--color-ns-yellow);
+            font-weight: 600;
+        }
+
+        /* Input valid & invalid styling */
+
+        /* valids */
+
+        &:valid:user-valid {
+            border-right: 3px solid var(--color-valid);
+        }
+
+
+        &:valid:not(:placeholder-shown) {
+        border-right: 3px solid var(--color-valid);
+        width: 85%;
+        }
+
+
+
+        &:valid:required {
+        border-right: 3px solid var(--color-valid);
+        }
+
+        /* Als waarde in range is (min & max) */
+        
+        input:user-valid:in-range {
+        background-color: rgb(0 255 0 / 25%);
+        border: 2px solid var(--color-valid);
+        }
+        
+        input:user-valid:in-range+label::after {
+        content: "Waarde is in range";
+        grid-row: 3;
+        }
+
+        /* invalids */
+
+        &:invalid {
+            width: 85%;
+        }
+
+        &:valid:user-invalid {
+            border-right: 3px solid var(--color-invalid);
+        }
+        
+        input:out-of-range {
+        background-color: rgb(255 0 0 / 25%);
+        border: 2px solid var(--color-invalid);
+        }
+    
+        input:out-of-range+label::after {
+        content: "Waarde is uit range";
+        grid-row: 3;
+        }
+
+        &:user-invalid {
+        border-right: 3px solid var(--color-invalid);
+        }
+
+        &:invalid:focus:not(:placeholder-shown) {
+        border-right: 3px solid var(--color-invalid);
+        }
+    }
+    }
+
+label:has(input[type=text]:valid:not(:placeholder-shown))::after {
     content: '';
     display: inline-block;
     width: .8em;
@@ -323,10 +436,11 @@ label:has(input:valid:not(:placeholder-shown))::after {
     background-size: contain;
     background-repeat: no-repeat;
     justify-self: end;
+    grid-row: 2;
 }
 
 
-label:has(input:required:invalid:not(:placeholder-shown))::after {
+label:has(input[type=text]:required:invalid:not(:placeholder-shown))::after {
     content: '';
     display: inline-block;
     width: .8em;
@@ -335,17 +449,17 @@ label:has(input:required:invalid:not(:placeholder-shown))::after {
     background-size: contain;
     background-repeat: no-repeat;
     justify-self: end;
+    grid-row: 2;
 }
 
-label:has(input:required)::after {
+label:has(input[type=text]:required)::after {
     content: '*';
+    grid-row: 2;
 }
 
 
-div {
+div.name {
     grid-column: 1/3;
-
-
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1em;
@@ -367,7 +481,7 @@ div {
 
 
 section:nth-of-type(1) {
-    display: grid;
+
     grid-template-rows: auto 1fr auto;
     gap: .8em;
 
@@ -394,4 +508,163 @@ section:nth-of-type(2) {
 
 } 
 
+small {
+    grid-column: 1;
+    grid-row: 3;
+    color: var(--color-invalid);
+}
 
+@supports selector(:loop(input:checked)) {
+    fieldset#optioneel {
+    display: none;
+}
+}
+
+@supports selector(:has(*)) {
+
+    small {
+        display: none;
+    }
+    
+    label:has(input:invalid:not(:placeholder-shown):not(input[type=radio]):not(input[type=submit]):not(input[type=file])) small {
+        display: block;
+    }
+
+    label:has(input:valid:not(:placeholder-shown):not(input[type=radio]):not(input[type=submit]):not(input[type=file]))::after {
+        content: '';
+        display: inline-block;
+        width: .8em;
+        height: .8em;
+        background-image: url(../icons/general/check-fat--small.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        justify-self: end;
+        grid-row: 2;
+    }
+
+    label:has(input:required:invalid:not(:placeholder-shown):not(input[type=radio]):not(input[type=submit]):not(input[type=file]))::after {
+        content: '';
+        display: inline-block;
+        width: .8em;
+        height: .8em;
+        background-image: url(../icons/general/close-s--small.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        justify-self: end;
+        grid-row: 2;
+    }
+
+    label:has(input:required:not(input[type=radio]):not(input[type=file]))::after {
+        content: '*';
+        grid-row: 2;
+    }
+
+    label:has(input.openUp) ~ div {
+        display: none;
+    }
+
+    label:has(input.openUp:checked) ~ div  {
+        display: grid;
+    }
+
+    /* label:has(input[name=text2a2]:not(:placeholder-shown)) ~ label:has(input[name=text2a2])  {
+        display: none;
+    } */
+
+    /* article:has(input:not(:placeholder-shown)) input:placeholder-shown {
+        opacity: .2;
+        pointer-events: none;
+        filter: saturate();
+    } */
+
+    
+    input:disabled {
+        opacity: .1;
+        pointer-events: none;
+        filter: saturate();
+    }
+}
+section:nth-of-type(4) {
+    gap: 1em;
+
+    div {
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        h3 {
+            grid-column: 1/3;
+        }
+
+        p {
+            grid-column: auto;
+        }
+    }
+}
+
+ [id^=sec]{
+    display: grid;
+}
+
+@supports selector(:target) {
+    [id^=sec] {
+        display: none; 
+    }
+
+    [id^=sec]:target {
+        display: grid;
+        gap: 2vw;
+    }
+
+    body:not(:has([id^=sec]:target)) #sec0 {
+        display: grid;
+    }
+}
+
+
+/* fieldset:loop(input:checked) + fieldset {
+    display: block;
+} */
+
+div.street {
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr;
+    width: 100%;
+
+    label:nth-of-type(1) {
+        grid-column: 1/3;
+    }
+    label:nth-of-type(2) {
+        grid-column: 3;
+    }
+    label:nth-of-type(3) {
+        grid-column: 1/2;
+    }
+    label:nth-of-type(4) {
+        grid-column: 2/4;
+    }
+
+}
+
+
+
+
+@media (max-width: 600px) {
+    div {
+        display: flex;
+        flex-wrap: wrap;
+        grid-column: 1/4;
+        
+        a {
+            width: 100%;
+            text-align: center;
+
+        }
+    }
+
+    div.street {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+}
