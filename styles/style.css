@@ -571,7 +571,7 @@ small {
         display: none;
     } */
 
-    /* article:has(input:not(:placeholder-shown)) input:placeholder-shown {
+    /* fieldset:has(input:not(:placeholder-shown)) input:placeholder-shown {
         opacity: .2;
         pointer-events: none;
         filter: saturate();
