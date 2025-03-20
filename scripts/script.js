@@ -114,42 +114,62 @@ document.querySelectorAll('fieldset .skip').forEach(skip => {
 });
 
 
+// Select all fieldset elements
 const fieldsets = document.querySelectorAll('fieldset');
 
+// Iterate over each fieldset
 fieldsets.forEach(fieldset => {
+    // Select the radio button with value "ja" within the fieldset
     const jaRadioButton = fieldset.querySelector('input[type="radio"][value="ja"]');
+    // Select all input elements within divs with class "open" inside the fieldset
     const inputjes = fieldset.querySelectorAll("div.open input");
 
+    // If the "ja" radio button exists
     if (jaRadioButton) {
+        // Add a change event listener to the "ja" radio button
         jaRadioButton.addEventListener('change', function() {
+            // If the "ja" radio button is checked
             if (this.checked) {
-                // Als 'Ja' is geselecteerd, maak de inputs onder expandable verplicht
+                // Make the inputs under expandable divs required
                 inputjes.forEach(inputje => {
-                    if (inputje.offsetParent !== null) { // Check if the input is visible
+                    // Check if the input is visible
+                    if (inputje.offsetParent !== null) {
+                        // Set the required attribute to true
                         inputje.setAttribute("required", "true");
-                    }
-                });
                     }
                 });
             }
         });
+    }
+});
 
-
+// Select the fourth section within the form
 const section = document.querySelector('form section:nth-of-type(4)');
 
+// Add an event listener for when the DOM content is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
+    // Select the form element
     const form = document.querySelector("form");
+    // If the form exists
     if (form) {
+        // Get the form topic from the data attribute
         const formTopic = form.dataset.formTopic;
+        // Retrieve the saved data from localStorage
         const savedData = JSON.parse(localStorage.getItem(formTopic));
+        // If there is saved data
         if (savedData) {
+            // Create a new div element to display the saved data
             const displaySection = document.createElement('div');
             displaySection.innerHTML = '<h3>What you filled in:</h3>';
+            // Iterate over each key-value pair in the saved data
             for (const [key, value] of Object.entries(savedData)) {
+                // Create a new paragraph element for each key-value pair
                 const p = document.createElement('p');
                 p.textContent = `${key}: ${value}`;
+                // Append the paragraph to the display section
                 displaySection.appendChild(p);
             }
+            // Append the display section to the fourth section in the form
             section.appendChild(displaySection);
         }
     }

@@ -163,29 +163,29 @@
                         <div class="name">
                             <label>
                                 voorletter(s) 
-                                <input type="text" required placeholder="Bijv. S.T" pattern="[A-Za-z\s]*" name="overledenLetters" name="Your2Letters" title="Alleen letters zijn toegestaan">
+                                <input type="text" required placeholder="Bijv. S.T" pattern="[A-Za-z\s]*" name="voorletters van overledene" title="Alleen letters zijn toegestaan">
                                 <small>Vul hier je voorletters in</small>
                             </label>
                             <label>
                                 tussenvoegsel 
-                                <input type="text" placeholder="Bijv. van" pattern="[A-Za-z\s]*" name="overledentussen" title="Alleen letters zijn toegestaan">
+                                <input type="text" placeholder="Bijv. van" pattern="[A-Za-z\s]*" name="tussenvoegsel van overledene" title="Alleen letters zijn toegestaan">
                             </label>
                             <label>
                                 achternaam 
-                                <input type="text" required placeholder="Bijv. Loos"  pattern="[A-Za-z\s]*" name="YourLastName" title="Alleen letters zijn toegestaan">
+                                <input type="text" required placeholder="Bijv. Loos"  pattern="[A-Za-z\s]*" name="Laatste naam van overledene" title="Alleen letters zijn toegestaan">
                                 <small>Vul hier je achternaam in</small>
                             </label>
                         </div>
 
                         <label>
                             BSN nummer 
-                            <input type="text" inputmode="numeric" maxlength="9" placeholder="-" name="BSN" required pattern="[1-9][0-9]{8}">
+                            <input type="text" inputmode="numeric" maxlength="9" placeholder="-" name="BSN van overledene" required pattern="[1-9][0-9]{8}">
                             <small>Je BSN moet 8 nummers zijn.</small>
                         </label>
                         <label>
                             overlijdensdatum 
                             <input type="date" required   min="2024-09-06"
-                            max="2025-03-06" id="date1" name="dateOfDeath">
+                            max="2025-03-06" id="date1" name="overlijdensdatum van overledene">
                         </label>
                 </fieldset>
                 <fieldset>
@@ -236,7 +236,7 @@
                         <p>Datum huwelijkse of partnerschapsvoorwaarden</p>
                         <label>
                             <input type="date"   min="2024-09-06"
-                            max="2025-03-06" id="date" name="DateHuwelijk">
+                            max="2025-03-06" id="date" name="datum van trouwvoorwaarden">
                         </label>
                     </div>
                 </fieldset>
@@ -295,32 +295,32 @@
                     <div class="open">
                         <label>
                             Protocolnummer notaris
-                            <input type="text"  pattern="[0-9]{6}" inputmode="numeric" placeholder="-" name="protocolnummerNote" maxlength="6">
+                            <input type="text"  pattern="[0-9]{6}" inputmode="numeric" placeholder="-" name="protocol nummer notaris" maxlength="6">
                         </label>
                         <div class="name">
                             <label >
                                 voorletter(s) 
-                                <input type="text"  placeholder="Bijv. S.T" pattern="[A-Za-z\s]*" name="noteName" title="Alleen letters zijn toegestaan">
+                                <input type="text"  placeholder="Bijv. S.T" pattern="[A-Za-z\s]*" name="notaris naam" title="Alleen letters zijn toegestaan">
                                 <small>Vul hier je voorletter(s) in</small>
                             </label>
                             <label>
                                 tussenvoegsel 
-                                <input type="text" placeholder="Bijv. van" pattern="[A-Za-z\s]*" name="noteTussen" title="Alleen letters zijn toegestaan">
+                                <input type="text" placeholder="Bijv. van" pattern="[A-Za-z\s]*" name="notaris tussenvoegsel" title="Alleen letters zijn toegestaan">
                             </label>
                             <label>
                                 achternaam 
-                                <input type="text"  placeholder="Bijv. Loos" pattern="[A-Za-z\s]*" name="noteLastName" title="Alleen letters zijn toegestaan">
+                                <input type="text"  placeholder="Bijv. Loos" pattern="[A-Za-z\s]*" name="notaris achternaam" title="Alleen letters zijn toegestaan">
                                 <small>Vul hier je achternaam in</small>
                             </label>
                         </div>
                         <label>
                             vestingsplaats
-                            <input type="text" placeholder='Bijv Utrecht' name="noteLives">
+                            <input type="text" placeholder='Bijv Utrecht' name="notaris woonplaats">
                             <small>Vul hier je woonplaats in, zoals Utrecht</small>
                         </label>
                         <label>
                             Datum van het testament of van de laatste wijziging
-                            <input type="date" name="DateTestament">
+                            <input type="date" name="datum van testament">
                         </label>
                     </div>
                 </fieldset>
@@ -347,12 +347,12 @@
                         </label>
                         <label>
                             Beconnummer adviseur
-                            <input type="text" class="skip" pattern="[0-9]{6}" placeholder="-" maxlength="6" inputmode="numeric" name="Becon" required>
+                            <input type="text" class="skip" pattern="[0-9]{6}" placeholder="-" maxlength="6" inputmode="numeric" name="Beconnummer" required>
                             <small>Beconnummer is 6 nummers</small>
                         </label>
                         <label>
                             Protocolnummer notaris
-                            <input type="text" class="skip" pattern="[0-9]{6}" placeholder="-" maxlength="6" inputmode="numeric" name="ProtocolNote" required>
+                            <input type="text" class="skip" pattern="[0-9]{6}" placeholder="-" maxlength="6" inputmode="numeric" name="Protocolnummer" required>
                             <small>protocolnummer is 6 nummers</small>
                         </label>
                 </fieldset>
@@ -361,33 +361,33 @@
                     <div class="name">
                         <label>
                             voorletter(s) 
-                            <input type="text" required placeholder="Bijv. S.T" pattern="[A-Za-z\s]*" name="machtName" title="Alleen letters zijn toegestaan">
+                            <input type="text" required placeholder="Bijv. S.T" pattern="[A-Za-z\s]*" name="gemachtige Name" title="Alleen letters zijn toegestaan">
                         </label>
                         <label>
                             tussenvoegsel 
-                            <input type="text" placeholder="Bijv. van" pattern="[A-Za-z\s]*" title="Alleen letters zijn toegestaan" name="machtTussen" >
+                            <input type="text" placeholder="Bijv. van" pattern="[A-Za-z\s]*" title="Alleen letters zijn toegestaan" name="gemachtige Tussenvoegsel" >
                         </label>
                         <label>
                             achternaam 
-                            <input type="text" required placeholder="Bijv. Loos"  pattern="[A-Za-z\s]*" name="machtLastName"  title="Alleen letters zijn toegestaan">
+                            <input type="text" required placeholder="Bijv. Loos"  pattern="[A-Za-z\s]*" name="gemachtige achternaam"  title="Alleen letters zijn toegestaan">
                         </label>
                     </div>
                     <div class="street">
                         <label>
                             Straat en huisnummer
-                            <input type="text" pattern="[A-Za-z\s]*" name="MachtStreet"   placeholder="Bijv: Kalverstraat" required>
+                            <input type="text" pattern="[A-Za-z\s]*" name="gemachtige straatnaam"   placeholder="Bijv: Kalverstraat" required>
                         </label>
                         <label>
-                            <input type="text" inputmode="numeric" name="machtNum"   required placeholder="-">
+                            <input type="text" inputmode="numeric" name="gemachtige straatnummer"   required placeholder="-">
                         </label>
                         <label>
                             Postcode 
-                            <input type="text" placeholder="Bijvoorbeeld: 1234 HH" pattern="[1-9][0-9]{3}[\s]?[A-Za-z]{2}" title="Bijvoorbeeld: 1234 HH" name="machtPost"  required>
+                            <input type="text" placeholder="Bijvoorbeeld: 1234 HH" pattern="[1-9][0-9]{3}[\s]?[A-Za-z]{2}" title="Bijvoorbeeld: 1234 HH" name="gemachtige Postcode"  required>
                             <small>postcode is 4 nummers en 2 letters</small>
                         </label>
                         <label>
                             woonplaats 
-                            <select id="country" name="country" autocomplete="country" enterkeyhint="done" required>
+                            <select id="country" name="land" autocomplete="country" enterkeyhint="done" required>
                                 <option></option>
                                 <option value="AF">Afghanistan</option>
                                 <option value="AX">Åland Islands</option>
@@ -643,12 +643,12 @@
                     </div>
                     <label>
                         Telefoonnummer 
-                        <input type="tel"  maxlength="11" placeholder="bijv: 0612345678" pattern="[0-9]{10}" name="machtPhone"  required>
+                        <input type="tel"  maxlength="11" placeholder="bijv: 0612345678" pattern="[0-9]{10}" name="gemachtige nummer"  required>
                         <small>telefoon is 10 nummers</small>
                     </label>
                     <label>
                         Email 
-                        <input type="email" placeholder="Bijvoorbeeld: text@gmail.com" name="machtMail"  required>
+                        <input type="email" placeholder="Bijvoorbeeld: text@gmail.com" name="gemachtige Mail"  required>
                         <small>e-mail heeft een @ en eindigt op .--</small>
                     </label>
                     <div>
