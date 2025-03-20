@@ -1,6 +1,9 @@
 # BrowserTech
 Bij browser tech is het de opdracht om in de stijl van de NS een erfbelastingsformulier te maken op basis van de techniek progressive enhancement. Ik wil voornamelijk focussen op slimme systemen met css bouwen om validatie zo goed mogelijk te laten werken. Ik ga dit doen bij een aantal verschillende stukken van het erfbelastings formulier.
 
+## NS stijling
+Ik heb geprobeerd de NS stijling toe te voegen door gebruik te maken van het NS font en de kleuren. 
+
 ## valideren met Has en After
 Ik heb veel gedaan met has en After om goede validatie te creeeren. Ik had natuurlijk de inputs aan kunnen passen door de omlijning groen of rood te maken op user-valid en user-invalid, dit heb ik natuurlijk ook gedaan: 
  

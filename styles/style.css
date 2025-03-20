@@ -79,11 +79,21 @@ h1, h2, h3, p {
 
 h1 {
     place-content: center;
+    color: var(--color-ns-darkblue);
 }
 
 h2 {
     font-size: var(--font-size-largest);
     font-weight: 600;
+    color: var(--color-ns-darkblue);
+}
+
+h3 {
+    color: var(--color-ns-darkblue);
+}
+
+legend {
+    color: var(--color-ns-darkblue);
 }
 
 p {
