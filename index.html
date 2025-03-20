@@ -164,6 +164,7 @@
                             <label>
                                 voorletter(s) 
                                 <input type="text" required placeholder="Bijv. S.T" pattern="[A-Za-z\s]*" name="overledenLetters" name="Your2Letters" title="Alleen letters zijn toegestaan">
+                                <small>Vul hier je voorletters in</small>
                             </label>
                             <label>
                                 tussenvoegsel 
@@ -172,6 +173,7 @@
                             <label>
                                 achternaam 
                                 <input type="text" required placeholder="Bijv. Loos"  pattern="[A-Za-z\s]*" name="YourLastName" title="Alleen letters zijn toegestaan">
+                                <small>Vul hier je achternaam in</small>
                             </label>
                         </div>
 
@@ -299,6 +301,7 @@
                             <label >
                                 voorletter(s) 
                                 <input type="text"  placeholder="Bijv. S.T" pattern="[A-Za-z\s]*" name="noteName" title="Alleen letters zijn toegestaan">
+                                <small>Vul hier je voorletter(s) in</small>
                             </label>
                             <label>
                                 tussenvoegsel 
@@ -307,11 +310,13 @@
                             <label>
                                 achternaam 
                                 <input type="text"  placeholder="Bijv. Loos" pattern="[A-Za-z\s]*" name="noteLastName" title="Alleen letters zijn toegestaan">
+                                <small>Vul hier je achternaam in</small>
                             </label>
                         </div>
                         <label>
                             vestingsplaats
                             <input type="text" placeholder='Bijv Utrecht' name="noteLives">
+                            <small>Vul hier je woonplaats in, zoals Utrecht</small>
                         </label>
                         <label>
                             Datum van het testament of van de laatste wijziging
@@ -338,14 +343,17 @@
                         <label>
                             Burgerservicenummer/RSIN gemachtigde
                             <input type="text" class="skip" pattern="[0-9]{9}" placeholder="-" maxlength="9" inputmode="numeric" name="BSN/RSIN" required>
+                            <small>BSN is 9 nummers</small>
                         </label>
                         <label>
                             Beconnummer adviseur
                             <input type="text" class="skip" pattern="[0-9]{6}" placeholder="-" maxlength="6" inputmode="numeric" name="Becon" required>
+                            <small>Beconnummer is 6 nummers</small>
                         </label>
                         <label>
                             Protocolnummer notaris
                             <input type="text" class="skip" pattern="[0-9]{6}" placeholder="-" maxlength="6" inputmode="numeric" name="ProtocolNote" required>
+                            <small>protocolnummer is 6 nummers</small>
                         </label>
                 </fieldset>
 
@@ -375,6 +383,7 @@
                         <label>
                             Postcode 
                             <input type="text" placeholder="Bijvoorbeeld: 1234 HH" pattern="[1-9][0-9]{3}[\s]?[A-Za-z]{2}" title="Bijvoorbeeld: 1234 HH" name="machtPost"  required>
+                            <small>postcode is 4 nummers en 2 letters</small>
                         </label>
                         <label>
                             woonplaats 
@@ -635,10 +644,12 @@
                     <label>
                         Telefoonnummer 
                         <input type="tel"  maxlength="11" placeholder="bijv: 0612345678" pattern="[0-9]{10}" name="machtPhone"  required>
+                        <small>telefoon is 10 nummers</small>
                     </label>
                     <label>
                         Email 
                         <input type="email" placeholder="Bijvoorbeeld: text@gmail.com" name="machtMail"  required>
+                        <small>e-mail heeft een @ en eindigt op .--</small>
                     </label>
                     <div>
                         <a href="#sec5" class="button">vorige</a>

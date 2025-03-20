@@ -93,6 +93,12 @@ inputFields.forEach((inputField) => {
 });
 </code>
 
+## Wat heb ik geleerd
+Ik had voor bt nog nooit een formulier gemaakt met html en css. Hierom was bijna alles wat ik tijdens dit vak deed nieuw. Ik vond het erg leuk om dit eens uit te proberen aangezien dit voor mijn gevoel de ultieme combinatie van UX en developement is. Het was erg interesant om te zien hoe ver ik kon komen met alleen maar html en daarna te kijken wat ik er allemaal bovenop kon bouwen met css en javascript. Has statements waren hier een erg groot onderdeel van en ik vond het geweldig om te kijken hoe ver ik daar mee kon komen. Ik heb veel geleerd over de nood van progressive enhancement en zal goed nadenken over hoe ik dit in andere projecten voort kan zetten.
+
+### verbeteringen?
+Ik had me graag wat meer willen verdiepen in een aantal andere structuren van het formulier. Ik heb hard gewerkt aan kleine details maar had graag nog wat verder willen gaan in het ontwikkellen van de rest van het formulier. Jammergenoeg kon dit niet door tijds nood. 
+
 
 
 
